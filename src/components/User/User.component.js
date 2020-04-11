@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addUser} from '../../redux/user/user.actions';
+import { selectUsers, selectSpecificUser } from '../../redux/user/user.selector';
 
 
-const UserComponent = ({ users, addUser }) => {
+const UserComponent = ({ users, addUser, specificUser }) => {
     const [user, setUser] = useState("");
 
     return (
@@ -23,8 +24,9 @@ const UserComponent = ({ users, addUser }) => {
     );
 };
 
-const mapStateToProps = state => ({
-  users: state.users
+const mapStateToProps = (state) => ({
+  users: selectUsers(state),
+  specificUser: selectSpecificUser()(state)
 })
 
 const mapDispatchToProps = dispatch => ({
