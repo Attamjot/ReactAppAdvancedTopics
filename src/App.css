@@ -1,3 +1,7 @@
-.App {
-  text-align: center;
+.delete-btn {
+    color: red !important;
+}
+
+.card .card-content .card-title {
+  margin-bottom: 0;
 }
